@@ -13,18 +13,17 @@
               <h3 class="panel-title"><%= index + 1 %>. <%= question_hash['question'] %> </h3>
             </div>
             <div class="panel-body">
-
-              <div class="radio">
-                <label>
-                  <input type="radio" name="question-1" id="" value="">
-                  Justice over mercy
-                </label>
-              </div>
-
+              <% question_hash['responses'].each do |response_hash| %>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="question-<%= index + 1 %>" id="" value="<%= response_hash['value'] %>">
+                    <%= response_hash['response'] %>
+                  </label>
+                </div>
+              <% end %>
             </div>
           </div>
         <% end %>
-
         <button type="submit" class="btn btn-info btn-lg btn-block">Submit</button>
       </div>
     </div>
