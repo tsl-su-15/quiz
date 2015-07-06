@@ -5,5 +5,8 @@
   - move any global CSS into the `/assets/stylesheets/application.css` file
 - Link submitted answers to Ruby logic
   - Build the Ruby logic to 'grade' quiz
+    - dynamically generate questions on question page
+    - create a counter hash with blank values for each data type
+    - increase the values in the counter hash based on user responses
   - Use the logic to display results
 - DRY up your code into a class and methods inside that class
