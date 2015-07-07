@@ -7,7 +7,7 @@
   <form action="/quiz_results">
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
-        <% @questions.each_with_index do |question_hash, index| %>
+        <% @quiz.questions.each_with_index do |question_hash, index| %>
           <div class="panel panel-info">
             <div class="panel-heading">
               <h3 class="panel-title"><%= index + 1 %>. <%= question_hash['question'] %> </h3>
