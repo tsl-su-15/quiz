@@ -5,6 +5,15 @@ class QuizController < ApplicationController
   end
 
   def results
+    @quiz = Quiz.new
+    @quiz.get_responses([
+                          params['question-1'],
+                          params['question-2'],
+                          params['question-3'],
+                          params['question-4'],
+                          params['question-5'],
+                        ])
+
     @counter_hash = {
       'boolean' => 0,
       'array' => 0,

@@ -1,5 +1,7 @@
 class Quiz
-  attr_accessor :questions
+  attr_accessor :questions,
+                :counter_hash,
+                :response_array
 
   def initialize
     @questions = [
@@ -49,5 +51,37 @@ class Quiz
         ]
       }
     ]
+
+    @counter_hash = {
+      'boolean' => 0,
+      'array' => 0,
+      'integer' => 0,
+      'string' => 0,
+    }
   end
+
+  def get_responses(array_of_responses)
+    @response_array = array_of_responses
+  end
+
+  def grade_responses
+    response_array.each do |response|
+      if response == 'boolean'
+        @counter_hash['boolean'] += 1
+      elsif response == 'array'
+        @counter_hash['array'] += 1
+      elsif response == 'integer'
+        @counter_hash['integer'] += 1
+      elsif response == 'string'
+        @counter_hash['string'] += 1
+      end
+    end
+    return counter_hash
+  end
+
 end
+
+
+
+
+
