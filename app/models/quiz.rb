@@ -60,7 +60,7 @@ class Quiz
     }
   end
 
-  def get_responses(array_of_responses)
+  def set_responses(array_of_responses)
     @response_array = array_of_responses
   end
 
@@ -77,6 +77,13 @@ class Quiz
       end
     end
     return counter_hash
+  end
+
+  def result
+    grade_responses
+    return counter_hash.max_by do |key, value|
+      value
+    end
   end
 
 end
