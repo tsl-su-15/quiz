@@ -65,18 +65,25 @@ class Quiz
   end
 
   def grade_responses
+    # improve using Single Responsibility Principle
+    reset_counter_hash
     response_array.each do |response|
-      if response == 'boolean'
-        @counter_hash['boolean'] += 1
-      elsif response == 'array'
-        @counter_hash['array'] += 1
-      elsif response == 'integer'
-        @counter_hash['integer'] += 1
-      elsif response == 'string'
-        @counter_hash['string'] += 1
-      end
+      increment_counter_hash(response)
     end
     return counter_hash
+  end
+
+  def reset_counter_hash
+    counter_hash.each do |key, value|
+      counter_hash[key] = 0
+    end
+    # ['boolean', 'array', 'integer', 'string'].each do |ruby_data_type|
+    #   counter_hash[ruby_data_type] = 0
+    # end
+  end
+
+  def increment_counter_hash(ruby_data_type)
+    counter_hash[ruby_data_type] += 1
   end
 
   def result
